@@ -1,19 +1,38 @@
 h1 {
 color: #ddc272;
-font-family: Georgia;
-font-size: 30pt;
+font-family: system-ui;
+font-size: 40pt;
+text-align: center;
+margin-top: 9%;
+margin-bottom: 1%;
+}
+
+div.noyagif  {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+  align-content: center;
+}
+
+div.noyagif img{
+  width: 500px;
+  height: auto;
 }
 
 body {
   background-color: #433d3d;
+  background-image: url("https://64.media.tumblr.com/ee250e460e5f8acfe6562844309691c8/bb9f037edc57fb13-83/s640x960/06e033ba61e352400de9db9aa237d722d2df0e31.gifv");
 }
 
 a {
 color: #ff8b43;
 font-family: verdana;
 font-size: 15pt;
+text-align: center;
 }
 
-li {
+h2 {
+    text-align: center;
     color: #ff8b43;
 }
