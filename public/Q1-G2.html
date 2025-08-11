@@ -9,7 +9,7 @@
 <p>erin's list of friends</p>
 <input id="in1" type="text" placeholder="Friend 1"> <br>
 <input id="in2" type="text" placeholder="Friend 2"> 
-<button onlick="addFriends()">Add Friends</button>
+<button onclick="addFriends()">Add Friends</button>
 
 <div id="out1">
 
@@ -17,15 +17,18 @@
 
 <script>
 
-    function addFriends(){
+   
 
-        var in1 = document.getElementById("in1");
-        var in2 = document.getElementById("in2");
+    function addFriends(){
+        
+
+        var int1 = document.getElementById("in1");
+        var int2 = document.getElementById("in2");
         var out1 = document.getElementById("out1");
 
         
-        out1.innerHTML += "<p>" + in1.value + "</p>";
-        out1.innerHTML += "<p>" + in2.value + "</p>";
+        out1.innerHTML += "<p>" + int1.value + "</p>";
+        out1.innerHTML += "<p>" + int2.value + "</p>";
     
     }
 
