@@ -1,6 +1,6 @@
 h1 {
 color: #ddc272;
-font-family: 'lendex';
+font-family: 'lexend';
 font-size: 40pt;
 text-align: center;
 margin-top: 9%;
@@ -12,12 +12,13 @@ div.noyagif  {
   margin-left: auto;
   margin-right: auto;
   width: 40%;
-  align-content: center;
+  justify-content: center;
 }
 
 div.noyagif img{
   width: 500px;
   height: auto;
+  justify-self: center;
 }
 
 body {
@@ -27,7 +28,8 @@ body {
 
 a {
 color: #ff8b43;
-font-family: verdana;
+font-family: lexend;
+font-weight: 300;
 font-size: 15pt;
 text-align: center;
 }

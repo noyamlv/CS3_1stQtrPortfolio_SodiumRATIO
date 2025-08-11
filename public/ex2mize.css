@@ -7,15 +7,18 @@ body {
       color: #433d3d;
       font-family: Georgia;
       font-size: 40px;
+      justify-content: center;
   }
   
   h2 {
       color: #ddc272;
       font-family: 'lexend';
       font-size: 30px;
+      justify-content: center;
   }
 
   p {
     color:#433d3d;
     font-family: arial;
+    justify-content: center;
   }
