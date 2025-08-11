@@ -1,0 +1,21 @@
+body {
+    background-color: cornsilk;
+    margin-right: 0px;
+  }
+  
+  h1 {
+      color: #433d3d;
+      font-family: Georgia;
+      font-size: 40px;
+  }
+  
+  h2 {
+      color: #ddc272;
+      font-family: 'lexend';
+      font-size: 30px;
+  }
+
+  p {
+    color:#433d3d;
+    font-family: arial;
+  }
