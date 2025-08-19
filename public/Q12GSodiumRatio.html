@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+    <h2> Q1 2nd Graded Exercise submitted by Erin Ratio of 9-Sodium</h2>
+
+    <head>
+    <link rel="stylesheet" href="ex2mize.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+    </head>
+
+    <ul><label>Meal Price: </label><input id="mp" type="number" placeholder="Meal Price"> <br>
+    <label>Tip: </label><input id="tip" type="number" placeholder="Tip"> <br>
+    <label>Service Charge: </label><input id="sc" type="number" placeholder="Service Charge (%)"> <br> <br>
+    <button onclick="totalMeal()">Accept Input</button>
+    </ul>
+
+    <p id="totalmeal"></p>
+
+    <script>
+        function totalMeal() {
+          var mp = parseFloat(document.getElementById("mp").value);
+          var tip = parseFloat(document.getElementById("tip").value);
+          var sc = parseFloat(document.getElementById("sc").value);
+
+          let totalCost = mp + tip + (sc / 100 * mp);
+          let resultElement = document.getElementById("totalmeal");
+          resultElement.innerHTML = "Total Meal: " + totalCost.toFixed(2);
+        }
+    </script>
+
+</body>
+</html>

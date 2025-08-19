@@ -1,5 +1,5 @@
 body {
-    background-color: cornsilk;
+    background-color: lightgoldenrodyellow;
     margin-right: 0px;
   }
   
@@ -18,7 +18,14 @@ body {
   }
 
   p {
-    color:#433d3d;
-    font-family: arial;
+    color:#ff8b43;
+    font-family: 'Lexend';
     justify-content: center;
+  }
+
+  label {
+    color: #433d3d;
+      font-family: 'Lexend';
+      font-size: 15px;
+      justify-content: center;
   }
