@@ -4,17 +4,17 @@ body {
   }
   
   h1 {
-      color: #433d3d;
-      font-family: Georgia;
-      font-size: 40px;
-      justify-content: center;
+    color: #433d3d;
+    font-family: Georgia;
+    font-size: 40px;
+    justify-content: center;
   }
   
   h2 {
-      color: #ddc272;
-      font-family: 'lexend';
-      font-size: 30px;
-      justify-content: center;
+    color: #ddc272;
+    font-family: 'lexend';
+    font-size: 30px;
+    justify-content: center;
   }
 
   p {
@@ -25,7 +25,7 @@ body {
 
   label {
     color: #433d3d;
-      font-family: 'Lexend';
-      font-size: 15px;
-      justify-content: center;
+    font-family: 'Lexend';
+    font-size: 15px;
+    justify-content: center;
   }
