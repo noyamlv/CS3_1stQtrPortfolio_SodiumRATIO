@@ -29,3 +29,15 @@ body {
     font-size: 15px;
     justify-content: center;
   }
+
+  a {
+    color:#713510;
+    font-family: 'Lexend';
+    font-size: 10px;
+  }
+
+  h3 {
+    color:#713510;
+    font-family: 'Lexend';
+    font-size: 10px;
+  }
