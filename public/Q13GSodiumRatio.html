@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+   <h2> Q1 3rd Graded Exercise submitted by Erin Ratio of 9-Sodium</h2>
+    <head>
+    <link rel="stylesheet" href="ex2mize.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+    </head>
+
+    <p>Guess the number: ****</p>
+    <p>The number is from 1 to 100</p>
+    <label>Enter your guess : </label><input id="guess" type="number" placeholder="Your guess!"> <br>
+    <button onclick="checkIt()">Check It</button>
+    <p id="checked"></p>
+
+    <script>
+
+       var dNumber = Math.floor(Math.random() * 100) + 1; // generates a number from 1  to 100 when the page loads
+
+        function checkIt() {
+            var guess = parseFloat(document.getElementById("guess").value);
+            let resultElement = document.getElementById("checked");
+            if (guess == dNumber) {
+                resultElement.innerHTML = "Result: You are correct! :3";
+            }
+            if (guess > dNumber) {
+                resultElement.innerHTML = "Result: Lower :(";
+            }
+            if (guess < dNumber) {
+                resultElement.innerHTML = "Result: Higher :(";
+            }
+         
+        }
+    </script>
+
+</body>
+
+</html>
