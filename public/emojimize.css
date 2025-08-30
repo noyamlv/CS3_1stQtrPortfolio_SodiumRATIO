@@ -1,0 +1,42 @@
+.card {
+  width: 200px;
+  padding: 1em;
+  border: 2px solid #333;
+  border-radius: 10px;
+  text-align: center;
+  background-color: lightgoldenrodyellow;
+  font-family: 'lexend';
+}
+.card:hover {
+  background-color: #ddc272;
+}
+.emoji {
+  font-size: 3rem;
+  font-family: 'fredoka';
+}
+
+.card.desc:hover {
+    color:#ddc272
+}
+
+h1 {
+    color: #433d3d;
+    font-family: Georgia;
+    font-size: 30px;
+    
+}
+h2 {
+    color: #433d3d;
+    font-family: 'lexend';
+    
+}
+
+body {
+    background-color: #786d6d;
+    font-family: 'fredoka';
+}
+
+p {
+    font-family: 'fredoka';
+    color:#544d4d;
+}
