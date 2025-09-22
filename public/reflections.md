@@ -21,6 +21,7 @@
 **Effective**
 1. The graded exercises!! They help me practice my skills and see what I'm still lacking in.
 2. In class exercises where we follow along :D It's also easier to ask questions as you do it!!
+
 **Not as Effective**
 1. That gambling your life on bonus thingy exercise... All it did was make me scared #4LIFE. THOUGH maybe being scared could make me do SOMETHING right...
 2. Discussions.. (I am GUILTY.) For me, at least, because I get distracted super easily and the aircon being directly at my spot make me sleepy!! 
