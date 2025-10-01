@@ -1,9 +1,9 @@
 h1 {
-color: #ddc272;
+color: #433d3d;
 font-family: 'lexend';
 font-size: 40pt;
 text-align: center;
-margin-top: 9%;
+margin-top: 5%;
 margin-bottom: 1%;
 }
 
@@ -40,4 +40,42 @@ h2 {
     margin-bottom: 1px;
     margin-top: 1px;
 }
+
+:root{
+  --neon:#c83f46;
+  --speed:20s;
+  --size:120px;
+}
+body{ margin:0; overflow:hidden; }
+.jellyfish{
+  position:absolute; top:50vh; left:-30vw; width:var(--size); height:auto;
+  animation: swim var(--speed) linear infinite;
+  filter: drop-shadow(0 0 4px var(--neon)) drop-shadow(0 0 12px var(--neon));
+}
+.bell{
+  width:var(--size); height:calc(var(--size)*.7);
+  border-radius:50% 50% 45% 45%;
+  background: var(--neon); opacity:.8;
+  animation: breathe 3s ease-in-out infinite;
+}
+.tentacle{
+  width:4px; height:calc(var(--size)*1.2); background: var(--neon);
+  margin:10px; margin-top: -21%; display:inline-block;
+  animation: sway 3s ease-in-out infinite;
+}
+
+@keyframes swim{
+  0% { transform: translateX(0); }
+  100%{ transform: translateX(120vw);}
+}
+@keyframes breathe{
+  0%,100%{ transform: scaleY(1); }
+  50%    { transform: scaleY(1.05); }
+}
+@keyframes sway{
+  0%{ transform: rotate(-5deg);}
+  50%{ transform: rotate(5deg);}
+  100%{transform: rotate(-5deg);}
+}
+
 
