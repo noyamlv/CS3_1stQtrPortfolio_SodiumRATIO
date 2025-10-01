@@ -44,7 +44,7 @@ h2 {
 :root{
   --neon:#c83f46;
   --speed:20s;
-  --size:120px;
+  --size:50px;
 }
 body{ margin:0; overflow:hidden; }
 .jellyfish{
@@ -60,7 +60,7 @@ body{ margin:0; overflow:hidden; }
 }
 .tentacle{
   width:4px; height:calc(var(--size)*1.2); background: var(--neon);
-  margin:10px; margin-top: -21%; display:inline-block;
+  margin:2px; margin-top: -25%; display:inline-block;
   animation: sway 3s ease-in-out infinite;
 }
 
@@ -78,4 +78,51 @@ body{ margin:0; overflow:hidden; }
   100%{transform: rotate(-5deg);}
 }
 
+:root{
+  --neon1:#7bbe85;
+  --speed1:15s;
+  --size1:55px;
+}
+body{ margin:0; overflow:hidden; }
+.jellyfish1{
+  position:absolute; top:30vh; left:-50vw; width:var(--size1); height:auto;
+  animation: swim var(--speed1) linear infinite;
+  filter: drop-shadow(0 0 4px var(--neon1)) drop-shadow(0 0 12px var(--neon1));
+}
+.bell1{
+  width:var(--size1); height:calc(var(--size1)*.7);
+  border-radius:50% 50% 45% 45%;
+  background: var(--neon1); opacity:.8;
+  animation: breathe 3s ease-in-out infinite;
+}
+
+.tentacle1{
+  width:4px; height:calc(var(--size1)*1.2); background: var(--neon1);
+  margin:2px; margin-top: -25%; display:inline-block;
+  animation: sway 3s ease-in-out infinite;
+}
+
+:root{
+  --neon2:#ff8b43;
+  --speed2:25s;
+  --size2:60px;
+}
+body{ margin:0; overflow:hidden; }
+.jellyfish2{
+  position:absolute; top:70vh; left:-40vw; width:var(--size2); height:auto;
+  animation: swim var(--speed2) linear infinite;
+  filter: drop-shadow(0 0 4px var(--neon2)) drop-shadow(0 0 12px var(--neon2));
+}
+.bell2{
+  width:var(--size2); height:calc(var(--size2)*.7);
+  border-radius:50% 50% 45% 45%;
+  background: var(--neon2); opacity:.8;
+  animation: breathe 3s ease-in-out infinite;
+}
+
+.tentacle2{
+  width:4px; height:calc(var(--size2)*1.2); background: var(--neon2);
+  margin:2px; margin-top: -25%; display:inline-block;
+  animation: sway 3s ease-in-out infinite;
+}
 
