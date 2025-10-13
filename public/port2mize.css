@@ -1,0 +1,105 @@
+h1 {
+color: #d0b04f;
+font-family: happy monkey;
+font-size: 40pt;
+text-align: center;
+margin-top: 3%;
+margin-bottom: 1%;
+font-weight: 1000;
+}
+
+.navbar {
+margin-top: 10px;
+background-color: #bfc0c2;
+width: 97%;
+text-align: center;
+height: 50px;
+border-radius: 30px;
+justify-self: center;
+border-color: #2f3138;
+}
+
+.navbar td {
+padding: 2px 0px;
+border-radius: 30px;
+}
+
+.navbar tr {
+padding: 2px 0px;
+border-radius: 30px;
+}
+
+.navbar a {
+text-decoration: none;
+color: #2f3138;
+display: block;
+background-color: #bfc0c2;
+transition: background-color 0.2s;
+height: 40px;
+border-radius: 30px;
+justify-items: center;
+border-color: #2f3138;
+font-weight: 400;
+}
+
+.navbar a:hover {
+background-color: #f1d88d;
+color: #555555;
+}
+
+
+div.noyagif  {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  justify-self: center;
+}
+
+div.noyagif img{
+  width: 500px;
+  height: auto;
+}
+
+a {
+color: #ff8b43;
+font-family: lexend;
+font-weight: 300;
+font-size: 15pt;
+text-align: center;
+}
+
+div.bokutogif  {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  justify-self: center;
+}
+
+body {
+  background-color: #eeeff1;
+  background-image: url("https://i.pinimg.com/originals/fb/31/df/fb31df294a7fe38d21726e3013578873.gif");
+}
+
+main{
+    margin: 15px;
+}
+
+a {
+color: #2f3138;
+font-family: happy monkey;
+font-weight: 600;
+font-size: 15pt;
+text-align: center;
+}
+
+a:hover{
+    color: #d0b04f;
+    transition: color 0.2s;
+}
+
+h2 {
+    text-align: center;
+    color: #ff8b43;
+    margin-bottom: 1px;
+    margin-top: 1px;
+}

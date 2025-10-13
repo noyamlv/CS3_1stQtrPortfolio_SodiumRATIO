@@ -3,22 +3,57 @@ color: #433d3d;
 font-family: 'lexend';
 font-size: 40pt;
 text-align: center;
-margin-top: 5%;
+margin-top: 3%;
 margin-bottom: 1%;
 }
+
+.navbar {
+margin-top: 10px;
+background-color: #ff8b43;
+width: 97%;
+text-align: center;
+height: 50px;
+border-radius: 30px;
+justify-self: center;
+}
+
+.navbar td {
+padding: 2px 0px;
+border-radius: 30px;
+}
+
+.navbar tr {
+padding: 2px 0px;
+border-radius: 30px;
+}
+
+.navbar a {
+text-decoration: none;
+color: #5a2d11;
+display: block;
+background-color: #ff8b43;
+transition: background-color 0.2s;
+height: 40px;
+border-radius: 30px;
+justify-items: center;
+}
+
+.navbar a:hover {
+background-color: #fdb080;
+color: #b05c28;
+}
+
 
 div.noyagif  {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 40%;
-  justify-content: center;
+  justify-self: center;
 }
 
 div.noyagif img{
   width: 500px;
   height: auto;
-  justify-self: center;
 }
 
 body {
