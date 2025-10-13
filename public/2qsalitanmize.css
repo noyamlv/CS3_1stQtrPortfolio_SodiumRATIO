@@ -19,7 +19,7 @@ table, td, tr {
     font-family: 'Lexend';
     color: #433d3d;
     justify-content: center;
-    adjust-items: center;
+    text-align: center;
     font-size: 50px;
   }
   img {

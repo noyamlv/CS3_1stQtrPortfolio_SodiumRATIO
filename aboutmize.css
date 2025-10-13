@@ -1,18 +1,31 @@
 body {
-  background-color: cornsilk;
+  background-color: white;
+  background-image: url("https://i.pinimg.com/originals/d3/f3/5d/d3f35d3041908f0aabb495c299641632.gif");
+  background-size: 40% ;
   margin-right: 0px;
 }
 
+main{
+    margin: 30px;
+}
+
+button {
+    display: block;
+    justify-self: center;
+}
+
 h1 {
-    color: #433d3d;
+    color: #0f2c57;
     font-family: Georgia;
     font-size: 40px;
+    text-align: center;
 }
 
 h2 {
-    color: #ddc272;
+    color: #e1f5fe;
     font-family: garamond;
     font-size: 30px;
+    text-align: center;
 }
 
 li {
@@ -21,65 +34,9 @@ li {
     font-size: 15px; 
 }
 
-div.gallery {
-    margin: 2px;
-    border: 2px solid #433d3d;
-    float: left;
-    width: 180px;
-    background-color: white;
-}
-
-div.gallery:hover {
-    border: 2px solid #ddc272;
-}
-
-div.gallery img {
-    width: 100%;
-    height: auto;
-}
-
-
-div.desc {
-    padding: 10px;
-    text-align: center;
-    color:#433d3d;
-}
-
-div.desc:hover {
-    color:#ddc272
-}
-
-div.gallery2 {
-    margin: 2px;
-    border: 2px solid #433d3d;
-    float: left;
-    width: 300px;
-    background-color: white;
-}
-
-div.gallery2:hover {
-    border: 2px solid #ddc272;
-}
-
-div.gallery2 img {
-    width: 100%;
-    height: auto;
-}
-
-
-div.desc2 {
-    padding: 10px;
-    text-align: center;
-    color:#433d3d;
-}
-
-div.desc2:hover {
-    color:#ddc272
-}
-
 .navbar {
 margin-top: 10px;
-background-color: #ff8b43;
+background-color: #2a99d5;
 width: 97%;
 text-align: center;
 height: 50px;
@@ -99,9 +56,9 @@ border-radius: 30px;
 
 .navbar a {
 text-decoration: none;
-color: #5a2d11;
+color: #01579b;
 display: block;
-background-color: #ff8b43;
+background-color: #2a99d5;
 transition: background-color 0.2s;
 height: 40px;
 border-radius: 30px;
@@ -109,14 +66,34 @@ justify-items: center;
 }
 
 .navbar a:hover {
-background-color: #fdb080;
-color: #b05c28;
+background-color: #29b6f6;
+color: #0288d1;
 }
 
 a {
-color: #ff8b43;
-font-family: lexend;
+color: #01579b;
+font-family: corben;
 font-weight: 300;
 font-size: 15pt;
 text-align: center;
+}
+
+.heada {
+margin-top: 40px;
+background-color: #bee8fb;
+width: 43.5%;
+text-align: center;
+height: 50px;
+border-color: #01579b;
+font-family: corben;
+color: #0288d1;
+margin-left: 15px;
+}
+
+iframe {
+    display: block;
+    margin-left: 15px;
+    margin-right: auto;
+    margin-bottom: 0px;
+    margin-top: 20px;
 }
