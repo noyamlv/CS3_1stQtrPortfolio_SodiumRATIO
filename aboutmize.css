@@ -15,10 +15,11 @@ button {
 }
 
 h1 {
-    color: #0f2c57;
-    font-family: Georgia;
+    color: #22376a;
     font-size: 40px;
     text-align: center;
+    margin-top: 10px;
+    margin-bottom: 0;
 }
 
 h2 {
@@ -78,10 +79,28 @@ font-size: 15pt;
 text-align: center;
 }
 
+.container {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.left{
+    flex: 1;
+    margin-right: 0px;
+    flex-direction: column, left;
+}
+
+.right{
+    flex: 1;
+    margin-left: 0px;
+    flex-direction: column, right;
+}
+
 .heada {
 margin-top: 40px;
 background-color: #bee8fb;
-width: 43.5%;
+width: 85%;
 text-align: center;
 height: 50px;
 border-color: #01579b;
@@ -96,4 +115,15 @@ iframe {
     margin-right: auto;
     margin-bottom: 0px;
     margin-top: 20px;
+}
+
+.about {
+margin-top: 10px;
+background-color: #afc6ff;
+width: 85%;
+text-align: center;
+justify-self: center;
+height: 50px;
+font-family: corben;
+color: #304b90;
 }
