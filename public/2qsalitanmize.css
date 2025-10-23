@@ -36,6 +36,7 @@ table, td, tr {
     margin-bottom: 1px;
     margin-top: 1px;
     font-family: lexend;
+    text-align: center;
 }
 
 .container {
@@ -59,7 +60,7 @@ table, td, tr {
   h3 {
     font-family: 'Lexend';
     color: white;
-    font-size: 15px;
+    font-size: 16px;
   }
 
   footer {
@@ -73,5 +74,8 @@ a {
 }
 a:hover {
   transition: color 0.2s;
+  color:#ff8b43
+}
+a:visited{
   color:#ff8b43
 }
