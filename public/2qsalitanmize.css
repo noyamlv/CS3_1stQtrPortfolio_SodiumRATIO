@@ -72,10 +72,12 @@ table, td, tr {
 a {
   color:#433d3d
 }
+
 a:hover {
   transition: color 0.2s;
   color:#ff8b43
 }
+
 a:visited{
   color:#ff8b43
 }
