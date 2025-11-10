@@ -1,0 +1,86 @@
+* {
+    font-family: 'Jersey 10';
+}
+
+body {
+    text-align: center;
+    background: linear-gradient(135deg, #d0b04f, #bfc0c2);
+    background-image: url(https://i.pinimg.com/736x/2a/a8/11/2aa811762b1ea93eb3efafba6cf10acf.jpg);
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.contian {
+    text-align: center;
+    background-image: url(https://i.pinimg.com/originals/e6/00/d1/e600d1f3745b0283bf5ce564fc24b076.gif);
+    background-size: cover;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.452);
+    width: 500px;
+    }
+
+h1 {
+    font-size: 90px;
+    color: #173200e0;
+}
+
+h2 {
+    color: #2f6301c0;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+footer {
+    color: #418109c0;
+    margin-top: 10px;
+}
+
+#message {
+    font-size: 36px;
+    margin-top: 20px;
+    color: rgba(250, 250, 250, 0.814);
+}
+
+#score {
+    font-size: 28px;
+    margin-top: 10px;
+    color: rgba(20, 44, 0, 0.763);
+}
+
+button {
+    margin-top: 30px;
+    font-size: 18px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background: #2f6301c0;
+    color: white;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #275101c6;
+}
+
+.container {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.left{
+    flex: 1;
+    margin-right: 0px;
+    flex-direction: column, left;
+}
+
+.right{
+    flex: 1;
+    margin-left: 0px;
+    flex-direction: column, right;
+}

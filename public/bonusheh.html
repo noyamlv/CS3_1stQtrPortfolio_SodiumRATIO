@@ -1,0 +1,67 @@
+<head>
+  <link rel="stylesheet" href="bonusheh.css">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Happy+Monkey&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Jersey+10&display=swap" rel="stylesheet">
+  <link rel="icon" href="https://i.pinimg.com/736x/d6/91/dd/d691dd546c7ef490f10934af8d193ebf.jpg" type="image/x-icon">
+</head>
+
+<body>
+  <h2>Erin Ratio, 9-Sodium, SY 2025-2026</h2>
+  <div class="contian">
+    <h1 id="letter">?</h1>
+    <div id="message">Press the shown key!</div>
+    <div id="score">Score: 0</div>
+    <button onclick="resetGame()">Reset Game</button>
+  </div>
+  <footer>
+    <p>© 2025 Eriana Julienne E. Ratio. All Rights Reserved.</p>
+    <div class ="container">
+      <div class="left">
+        <img src="https://i.pinimg.com/originals/2d/30/aa/2d30aaf34b6683a17c4d72d84308bfb8.gif" width=25px height=40px alt="ilovenharmonia">
+      </div>
+      <div class="right">
+        <img src="https://media.discordapp.net/attachments/968719337517088778/1437335949586600017/ezgif.com-video-to-gif-converter_1.gif?ex=6912deea&is=69118d6a&hm=f2d2077d4a69c7d80e5e5c18deb18aaa2ef33834b3d708c51a0283919729e2a3&=&width=900&height=675" height=40px width=50px alt="ilovenharmonia">
+      </div>
+    </div>
+  </footer>
+</body>
+
+<script>
+  let score = 0;
+  let currentLetter = '';
+
+  function randomLetter() {
+    const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    return letters[Math.floor(Math.random() * letters.length)];
+  }
+
+  function showNewLetter() {
+    currentLetter = randomLetter();
+    document.getElementById('letter').textContent = currentLetter;
+    document.getElementById('message').textContent = 'Press the shown key!';
+  }
+
+  document.addEventListener('keydown', (event) => {
+    const pressed = event.key.toUpperCase();
+
+    if (pressed === currentLetter) {
+      score++;
+      document.getElementById('message').textContent = '✅ Correct!';
+      document.getElementById('score').textContent = `Score: ${score}`;
+      setTimeout(showNewLetter, 700);
+    } 
+    else {
+      score = Math.max(0, score - 1); // deduct 1 point for wrong answer
+      document.getElementById('message').textContent = '❌ Try again!';
+      document.getElementById('score').textContent = `Score: ${score}`;
+    }
+  });
+
+  function resetGame() {
+    score = 0;
+    document.getElementById('score').textContent = `Score: ${score}`;
+    showNewLetter();
+  }
+
+  showNewLetter();
+</script>
