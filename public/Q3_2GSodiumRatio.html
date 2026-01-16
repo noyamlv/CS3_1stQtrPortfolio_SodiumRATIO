@@ -1,0 +1,84 @@
+<form method="post" action="sumbmti" onsubmit="return confirm('Do you want to proceed with the submission?')" onreset="return confirm('Are you sure you want to clear the form?')">
+<head>
+    <link rel="stylesheet" href="q3_2gsytle.css">
+    <script src="q3_2gszj.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Freckle+Face&family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Kavoon&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+
+<table class="navbar">
+		<tr>
+            <td><a href="/index.html"><img src="blueperiodlogo-removebg-preview.png" height="50px"></a></td>
+			<td><a href="/index.html">About<br>(Main Page)</a></td>
+			<td><a href="portfolioq1.html">Applications<br>(1st Qtr Portfolio)</a></td>
+			<td><a href="portfolioq2.html">Courses Offered<br>(2nd Qtr Portfolio)</a></td>
+		</tr>
+	</table>
+
+<h1>Cram School Application Form</h1>
+<h2>Tokyo Art Institute</h2>
+
+<form id="form" function="submit" method="form">
+    <fieldset>
+        <label>Full Name:</label>
+        <input type="text" id="name" placeholder="Enter Full Name" onblur="checkEmpty(this)">
+
+        <br><label>Birthday:</label>
+        <input type="date" id="bday" onblur="checkEmpty(this)">
+
+        <br><label>Student ID:</label>
+        <input type="number" id="id" onblur="checkEmpty(this)">
+
+        <br><label>Email Address:</label>
+        <input type="text" id="email" placeholder="Enter Email Address" onblur="checkEmpty(this)">
+    </fieldset>
+
+    <p> </p>
+
+    <fieldset>
+        <label>Mobile phone:</label>
+        <input type="text" id="stid" placeholder="Enter Phone Number" onblur="checkEmpty(this)">
+        <br><label>Grade Level:</label>
+        <select name="grade" id="grade">
+            <option value="select">Select an option</option>
+            <option value="1styear">1st year</option>
+            <option value="2ndyear">2nd year</option>
+            <option value="3rdyear">3rd year</option>
+            <option value="4thyear">4th year</option>
+        </select>
+
+        <br><label>Are you an Intern or an Extern?</label>
+        <br><input type="radio" id="intern" name="int" value="Intern">
+        <label>Intern</label>
+        <br><input type="radio" id="extern" name="ext" value="Extern">
+        <label>Extern</label>
+        <br><label>Preffered Art Course:</label>
+            <select name="course" id="course">
+            <option value="select">Select an option</option>
+            <option value="oil">Oil Painting</option>
+            <option value="nihonga">Japanese Painting (Nihonga)</option>
+            <option value="scuplt">Sculpture</option>
+            <option value="inter">Intermedia Art</option>
+            <option value="archi">Architecture</option>
+            <option value="inter">Aesthetics and Art History</option>
+        </select>
+    </fieldset>
+    <p> </p>
+    <fieldset>
+    <label>Why do you wish to pursue this type of art?</label>
+    <br><textarea id="message" name="message" rows="6" cols="70" onblur="checkEmpty(this)">Enter reasoning here</textarea onblur="checkEmpty(this)">
+    </fieldset>
+    <p></p>
+    <fieldset id="surets">
+    <input type="submit" value="Submit">
+    <input type="reset" value="Reset">
+    </fieldset>
+</form>
+
+<script>
+    const form = document.querySelector('form');
+
+    form.addEventListener('submit', function(event){
+        event.preventDefault();
+        alert('You submitted it yaay!');
+    });
+</script>

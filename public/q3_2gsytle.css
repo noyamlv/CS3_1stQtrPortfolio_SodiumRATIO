@@ -1,0 +1,86 @@
+h2{
+    margin-top: 0%;
+    justify-self: center;
+}
+
+h1{
+    margin-bottom: 0%;
+    justify-self: center;
+}
+
+body{
+    background-image: url("https://i.pinimg.com/736x/9b/0a/7b/9b0a7b03d58da65a2af60d12893c0165.jpg");
+    background-size: contain;
+}
+
+*{
+    font-family: google sans;
+}
+
+#surets{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.navbar {
+margin-top: 0px;
+background-color: #9eddff;
+width: 100%;
+text-align: center;
+height: 60px;
+justify-self: center;
+}
+
+.navbar td {
+padding: 2px 0px;
+}
+
+.navbar tr {
+padding: 2px 0px;
+}
+
+.navbar a {
+text-decoration: none;
+color: #4387bb;
+display: block;
+background-color: #9eddff;
+transition: background-color 0.2s;
+height: 50px;
+justify-items: center;
+font-family: google sans;
+}
+
+.navbar a:hover {
+background-color: #29b6f6;
+color: #1c7ec9;
+}
+
+a {
+color: #0e7bce;
+font-family: corben;
+font-weight: 300;
+font-size: 13pt;
+text-align: center;
+}
+
+fieldset{
+    justify-self: center;
+    width: 40vw;
+    background-color: #f7fdff;
+    border-color: rgb(197, 231, 249)
+}
+
+form{
+    color: #001423;
+}
+
+input:focus, textarea:focus, select:focus {
+    border: 2px solid #0e7bce; 
+    background-color: #d7efff;
+    outline: none;
+}
+
+.empty {
+    border-color: rgb(220, 68, 68);
+}
