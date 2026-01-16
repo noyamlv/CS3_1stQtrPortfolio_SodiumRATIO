@@ -1,20 +1,23 @@
 h2{
     margin-top: 0%;
     justify-self: center;
+    color: #2fa2fa;
 }
 
 h1{
     margin-bottom: 0%;
     justify-self: center;
+    color:#0e7bce;
 }
 
 body{
-    background-image: url("https://i.pinimg.com/736x/9b/0a/7b/9b0a7b03d58da65a2af60d12893c0165.jpg");
+    background: #f7fdff;
+    background-image: url("https://i.pinimg.com/originals/fe/2c/3b/fe2c3b52edc0b498826a9815c9e73a0e.gif");
     background-size: contain;
 }
 
 *{
-    font-family: google sans;
+    font-family: tinos;
 }
 
 #surets{
