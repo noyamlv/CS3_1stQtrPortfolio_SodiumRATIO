@@ -1,0 +1,163 @@
+<head>
+    <title>Show List of Students Who Signed-Up</title>
+    <link rel="stylesheet" href="vsignup.css">
+    <link href="https://fonts.googleapis.com/css2?family=Freckle+Face&family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Kavoon&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<table class="navbar">
+    <tr>
+        <td><a href="/index.html"><img src="blueperiodlogo-removebg-preview.png" height="50px"></a></td>
+        <td><a href="/index.html">Home Page<br>(Main Page)</a></td>
+        <td><a href="portfolioq1.html">About<br>(1st Qtr Portfolio)</a></td>
+        <td><a href="portfolioq2.html">Courses Offered<br>(2nd Qtr Portfolio)</a></td>
+    </tr>
+</table>
+
+<div class="container">
+    <h1>Show List of Students Who Signed-Up</h1>
+    <h2>by Juls Ratio</h2>
+
+    <a href="Q3_2GSodiumRatio.html" class="back-link">← Back to Signup</a>
+
+    <div class="controls">
+        <label for="clubFilter">Select Your Club:</label>
+        <select id="clubFilter">
+            <option value="all">-- select an option --</option>
+        </select>
+        <div class="total-count" id="totalCount"></div>
+    </div>
+
+    <div class="table-container" id="tableContainer">
+    </div>
+</div>
+
+<script>
+    function loadSignups() {
+        const data = localStorage.getItem('cramSchoolSignups');
+        return data ? JSON.parse(data) : [];
+    }
+
+    function getUniqueCourses(signups) {
+        const courses = [...new Set(signups.map(signup => signup.preferredCourse))];
+        return courses.sort();
+    }
+
+    function populateCourseFilter(courses) {
+        const select = document.getElementById('clubFilter');
+
+        while (select.options.length > 1) {
+            select.remove(1);
+        }
+
+        const courseNames = {
+            'oil': 'Oil Painting',
+            'nihonga': 'Japanese Painting (Nihonga)',
+            'scuplt': 'Sculpture',
+            'inter': 'Intermedia Art',
+            'archi': 'Architecture',
+            'aesthetics': 'Aesthetics and Art History'
+        };
+
+        courses.forEach(course => {
+            const option = document.createElement('option');
+            option.value = course;
+            option.textContent = courseNames[course] || course;
+            select.appendChild(option);
+        });
+    }
+
+    function filterSignups(signups, courseFilter) {
+        if (courseFilter === 'all') {
+            return signups;
+        }
+        return signups.filter(signup => signup.preferredCourse === courseFilter);
+    }
+
+    function displaySignups(signups) {
+        const tableContainer = document.getElementById('tableContainer');
+        const totalCount = document.getElementById('totalCount');
+
+        if (signups.length === 0) {
+            tableContainer.innerHTML = `
+                <div class="empty-state">
+                    <h3>No Sign-Ups for the selected art course</h3>
+                    <p>Go sign up for this art course now!</p>
+                    <a href="Q3_2GSodiumRatio.html" class="btn-back">Go to Sign-Up Form</a>
+                </div>
+            `;
+            totalCount.textContent = 'Total Signups: 0';
+            return;
+        }
+
+        totalCount.textContent = `Total Signups: ${signups.length}`;
+        if (signups.length === 0) {
+            totalCount.textContent = `Total Signups: 0`;
+        }
+
+        let tableHTML = `
+            <table>
+                <thead>
+                    <tr>
+                        <th>Club</th>
+                        <th>ID</th>
+                        <th>Fullname</th>
+                        <th>Grade</th>
+                        <th>Email</th>
+                        <th>Mobile</th>
+                        <th>Intern/Extern</th>
+                    </tr>
+                </thead>
+                <tbody>
+        `;
+
+        const courseNames = {
+            'oil': 'Oil Painting',
+            'nihonga': 'Japanese Painting (Nihonga)',
+            'scuplt': 'Sculpture',
+            'inter': 'Intermedia Art',
+            'archi': 'Architecture',
+            'aesthetics': 'Aesthetics and Art History'
+        };
+
+        signups.forEach(signup => {
+            tableHTML += `
+                <tr>
+                    <td>${courseNames[signup.preferredCourse] || signup.preferredCourse}</td>
+                    <td>${signup.studentID}</td>
+                    <td>${signup.fullName}</td>
+                    <td>${signup.gradeLevel}</td>
+                    <td>${signup.email}</td>
+                    <td>${signup.mobilePhone}</td>
+                    <td>${signup.internExtern}</td>
+                </tr>
+            `;
+        });
+
+        tableHTML += `
+                </tbody>
+            </table>
+        `;
+
+        tableContainer.innerHTML = tableHTML;
+    }
+
+    function init() {
+        const allSignups = loadSignups();
+
+        const allCourses = ['oil', 'nihonga', 'scuplt', 'inter', 'archi', 'aesthetics'];
+        populateCourseFilter(allCourses);
+
+        displaySignups(allSignups);
+
+        document.getElementById('clubFilter').addEventListener('change', function(e) {
+            const selectedCourse = e.target.value;
+            const filteredSignups = filterSignups(allSignups, selectedCourse);
+            displaySignups(filteredSignups);
+        });
+    }
+
+    window.addEventListener('DOMContentLoaded', init);
+</script>
+
+</body>

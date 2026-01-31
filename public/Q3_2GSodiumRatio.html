@@ -1,45 +1,45 @@
-<form method="post" action="sumbmti" onsubmit="return confirm('Do you want to proceed with the submission?')" onreset="return confirm('Are you sure you want to clear the form?')">
 <head>
+    <title>TAI Applications</title>
     <link rel="stylesheet" href="q3_2gsytle.css">
-    <script src="q3_2gszj.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Freckle+Face&family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Kavoon&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 </head>
+<body>
 
 <table class="navbar">
-		<tr>
-            <td><a href="/index.html"><img src="blueperiodlogo-removebg-preview.png" height="50px"></a></td>
-			<td><a href="/index.html">About<br>(Main Page)</a></td>
-			<td><a href="portfolioq1.html">Applications<br>(1st Qtr Portfolio)</a></td>
-			<td><a href="portfolioq2.html">Courses Offered<br>(2nd Qtr Portfolio)</a></td>
-		</tr>
-	</table>
+    <tr>
+        <td><a href="/index.html"><img src="blueperiodlogo-removebg-preview.png" height="50px"></a></td>
+        <td><a href="/index.html">Home Page<br>(Main Page)</a></td>
+        <td><a href="portfolioq1.html">About<br>(1st Qtr Portfolio)</a></td>
+        <td><a href="portfolioq2.html">Courses Offered<br>(2nd Qtr Portfolio)</a></td>
+    </tr>
+</table>
 
 <h1>Cram School Application Form</h1>
 <h2>Tokyo Art Institute</h2>
 
-<form id="form" function="submit" method="form">
+<form id="form" onsubmit="return handleSubmit(event)" onreset="return confirm('Are you sure you want to clear the form?')">
     <fieldset>
         <label>Full Name:</label>
-        <input type="text" id="name" placeholder="Enter Full Name" onblur="checkEmpty(this)">
+        <input type="text" id="name" placeholder="Enter Full Name" onblur="checkEmpty(this)" required>
 
         <br><label>Birthday:</label>
-        <input type="date" id="bday" onblur="checkEmpty(this)">
+        <input type="date" id="bday" onblur="checkEmpty(this)" required>
 
         <br><label>Student ID:</label>
-        <input type="number" id="id" onblur="checkEmpty(this)">
+        <input type="number" id="id" onblur="checkEmpty(this)" required>
 
         <br><label>Email Address:</label>
-        <input type="text" id="email" placeholder="Enter Email Address" onblur="checkEmpty(this)">
+        <input type="email" id="email" placeholder="Enter Email Address" onblur="checkEmpty(this)" required>
     </fieldset>
 
     <p> </p>
 
     <fieldset>
         <label>Mobile phone:</label>
-        <input type="text" id="stid" placeholder="Enter Phone Number" onblur="checkEmpty(this)">
+        <input type="text" id="stid" placeholder="Enter Phone Number" onblur="checkEmpty(this)" required>
         <br><label>Grade Level:</label>
-        <select name="grade" id="grade">
-            <option value="select">Select an option</option>
+        <select name="grade" id="grade" required>
+            <option value="">Select an option</option>
             <option value="1styear">1st year</option>
             <option value="2ndyear">2nd year</option>
             <option value="3rdyear">3rd year</option>
@@ -47,38 +47,83 @@
         </select>
 
         <br><label>Are you an Intern or an Extern?</label>
-        <br><input type="radio" id="intern" name="int" value="Intern">
+        <br><input type="radio" id="intern" name="internExtern" value="Intern" required>
         <label>Intern</label>
-        <br><input type="radio" id="extern" name="ext" value="Extern">
+        <br><input type="radio" id="extern" name="internExtern" value="Extern" required>
         <label>Extern</label>
-        <br><label>Preffered Art Course:</label>
-            <select name="course" id="course">
-            <option value="select">Select an option</option>
+        <br><label>Preferred Art Course:</label>
+        <select name="course" id="course" required>
+            <option value="">Select an option</option>
             <option value="oil">Oil Painting</option>
             <option value="nihonga">Japanese Painting (Nihonga)</option>
             <option value="scuplt">Sculpture</option>
             <option value="inter">Intermedia Art</option>
             <option value="archi">Architecture</option>
-            <option value="inter">Aesthetics and Art History</option>
+            <option value="aesthetics">Aesthetics and Art History</option>
         </select>
     </fieldset>
     <p> </p>
     <fieldset>
-    <label>Why do you wish to pursue this type of art?</label>
-    <br><textarea id="message" name="message" rows="6" cols="70" onblur="checkEmpty(this)">Enter reasoning here</textarea onblur="checkEmpty(this)">
+        <label>Why do you wish to pursue this type of art?</label>
+        <br><textarea id="message" name="message" rows="6" cols="70" placeholder="Enter reasoning here" onblur="checkEmpty(this)" required></textarea>
     </fieldset>
     <p></p>
     <fieldset id="surets">
-    <input type="submit" value="Submit">
-    <input type="reset" value="Reset">
+        <input type="submit" value="Submit">
+        <input type="reset" value="Reset">
+        <input type="button" value="View Sign-Ups" onclick="viewSignups()">
     </fieldset>
 </form>
 
 <script>
-    const form = document.querySelector('form');
-
-    form.addEventListener('submit', function(event){
+    function handleSubmit(event) {
         event.preventDefault();
-        alert('You submitted it yaay!');
-    });
+
+        const confirmed = confirm('Do you wish to proceed with the submission?');
+        
+        if (confirmed) {
+            const formData = {
+                fullName: document.getElementById('name').value,
+                birthday: document.getElementById('bday').value,
+                studentID: document.getElementById('id').value,
+                email: document.getElementById('email').value,
+                mobilePhone: document.getElementById('stid').value,
+                gradeLevel: document.getElementById('grade').value,
+                internExtern: document.querySelector('input[name="internExtern"]:checked').value,
+                preferredCourse: document.getElementById('course').value,
+                reasoning: document.getElementById('message').value,
+                timestamp: new Date().toISOString()
+            };
+
+            let signups = [];
+            const existingData = localStorage.getItem('cramSchoolSignups');
+            
+            if (existingData) {
+                signups = JSON.parse(existingData);
+            }
+
+            signups.push(formData);
+
+            localStorage.setItem('cramSchoolSignups', JSON.stringify(signups));
+
+            window.location.href = 'submitted.html';
+        }
+        
+        return false;
+    }
+
+    function viewSignups() {
+        window.location.href = 'viewSignUps.html';
+    }
+
+    function checkEmpty(input) {
+        if (input.value.trim() === "") {
+            input.classList.add("empty");
+        } else {
+            input.classList.remove("empty");
+        }
+    }
 </script>
+
+</body>
+</html>
