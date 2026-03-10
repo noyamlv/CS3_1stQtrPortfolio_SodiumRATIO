@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Add a Movie</title>
+  <style>
+    /* General reset and body styling */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f0f2f5;
+      display: flex;
+      justify-content: center;
+      padding: 40px 16px;
+      min-height: 100vh;
+    }
+
+    /* Main card container */
+    .card {
+      background-color: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      padding: 36px 40px;
+      width: 100%;
+      max-width: 480px;
+      height: fit-content;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #1a1a2e;
+      margin-bottom: 28px;
+    }
+
+    /* Form field labels */
+    label {
+      display: block;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: #333;
+      margin-bottom: 6px;
+    }
+
+    /* Text inputs */
+    input[type="text"] {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+      transition: border-color 0.2s;
+      outline: none;
+    }
+
+    input[type="text"]:focus {
+      border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+    }
+
+    /* Dropdown select */
+    select {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+      background-color: #fff;
+      cursor: pointer;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    select:focus {
+      border-color: #2563eb;
+    }
+
+    /* Star rating container */
+    .star-rating {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: flex-end;
+      margin-bottom: 24px;
+      gap: 4px;
+    }
+
+    /* Hide the actual radio inputs */
+    .star-rating input[type="radio"] {
+      display: none;
+    }
+
+    /* Star label styling */
+    .star-rating label {
+      font-size: 2rem;
+      color: #ccc;
+      cursor: pointer;
+      margin-bottom: 0;
+      transition: color 0.15s ease;
+    }
+
+    /* Highlight stars on hover — lighter yellow on hover */
+    .star-rating label:hover,
+    .star-rating label:hover ~ label {
+      color: #fde68a; /* lighter yellow on hover */
+    }
+
+    /* Keep selected stars fully yellow */
+    .star-rating input[type="radio"]:checked ~ label {
+      color: #f5a623;
+    }
+
+    /* When hovering, override checked state to show hover color */
+    .star-rating:hover input[type="radio"]:checked ~ label {
+      color: #fde68a;
+    }
+
+    /* But the hovered star and ones before it stay lighter yellow */
+    .star-rating label:hover ~ label {
+      color: #fde68a;
+    }
+
+    /* Add Movie button */
+    .btn-add {
+      width: 100%;
+      padding: 12px;
+      background-color: #2563eb;
+      color: #ffffff;
+      font-size: 1rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+      margin-bottom: 30px;
+    }
+
+    .btn-add:hover {
+      background-color: #1d4ed8;
+    }
+
+    /* Movie List heading */
+    h2 {
+      text-align: center;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #1a1a2e;
+      margin-bottom: 16px;
+    }
+
+    /* Individual movie entry card */
+    .movie-item {
+      background-color: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 12px 16px;
+      margin-bottom: 10px;
+      font-size: 0.92rem;
+      color: #333;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    /* Movie info text */
+    .movie-info {
+      flex: 1;
+    }
+
+    /* Stars display in movie list */
+    .movie-stars {
+      color: #f5a623;
+      font-size: 1.1rem;
+      white-space: nowrap;
+    }
+
+    /* Empty state message */
+    .empty-msg {
+      text-align: center;
+      color: #9ca3af;
+      font-size: 0.9rem;
+      padding: 12px 0;
+    }
+
+    /* Red border for invalid/empty inputs */
+    input[type="text"].error {
+      border-color: #ef4444;
+      box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15);
+      margin-bottom: 4px;
+    }
+
+    /* Inline error message under each field */
+    .error-msg {
+      color: #ef4444;
+      font-size: 0.78rem;
+      font-weight: 500;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* Red glow around stars if no rating selected */
+    .star-rating.error {
+      background-color: #fff1f1;
+      border: 1px solid #ef4444;
+      border-radius: 8px;
+      padding: 6px 10px;
+      box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15);
+    }
+
+    /* Toast notification bar at top */
+    .toast {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #ef4444;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+      z-index: 9999;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+      white-space: nowrap;
+    }
+
+    .toast.show {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Toast notification -->
+  <div class="toast" id="toast">⚠️ Please fill in all fields and select a rating!</div>
+
+  <div class="card">
+    <h1>Add a Movie</h1>
+
+    <!-- Title input -->
+    <label for="title">Title:</label>
+    <input type="text" id="title" placeholder="Enter movie title" />
+    <span class="error-msg" id="titleError" style="display:none;">⚠ Title is required.</span>
+
+    <!-- Year input -->
+    <label for="year">Year:</label>
+    <input type="text" id="year" placeholder="Enter release year" />
+    <span class="error-msg" id="yearError" style="display:none;">⚠ Year is required.</span>
+
+    <!-- Genre dropdown -->
+    <label for="genre">Genre:</label>
+    <select id="genre">
+      <option value="Action">Action</option>
+      <option value="Comedy">Comedy</option>
+      <option value="Drama">Drama</option>
+      <option value="Horror">Horror</option>
+      <option value="Romance">Romance</option>
+      <option value="Sci-Fi">Sci-Fi</option>
+      <option value="Thriller">Thriller</option>
+      <option value="Animation">Animation</option>
+    </select>
+
+    <!-- Star rating (5 to 1, reversed for CSS trick) -->
+    <label>Rating:</label>
+    <div class="star-rating" id="starRating">
+      <input type="radio" id="star5" name="rating" value="5" />
+      <label for="star5" title="5 stars">&#9733;</label>
+
+      <input type="radio" id="star4" name="rating" value="4" />
+      <label for="star4" title="4 stars">&#9733;</label>
+
+      <input type="radio" id="star3" name="rating" value="3" />
+      <label for="star3" title="3 stars">&#9733;</label>
+
+      <input type="radio" id="star2" name="rating" value="2" />
+      <label for="star2" title="2 stars">&#9733;</label>
+
+      <input type="radio" id="star1" name="rating" value="1" />
+      <label for="star1" title="1 star">&#9733;</label>
+    </div>
+    <span class="error-msg" id="ratingError" style="display:none;">⚠ Please select a star rating.</span>
+
+    <!-- Submit button -->
+    <button class="btn-add" onclick="addMovie()">Add Movie</button>
+
+    <!-- Movie list display -->
+    <h2>Movie List</h2>
+    <div id="movieList">
+      <p class="empty-msg">No movies added yet.</p>
+    </div>
+  </div>
+
+  <script>
+    // Load and display movies from localStorage on page load
+    window.onload = function () {
+      displayMovies();
+
+      // Clear red border on title as user types
+      document.getElementById('title').addEventListener('input', function () {
+        this.classList.remove('error');
+        document.getElementById('titleError').style.display = 'none';
+      });
+
+      // Clear red border on year as user types
+      document.getElementById('year').addEventListener('input', function () {
+        this.classList.remove('error');
+        document.getElementById('yearError').style.display = 'none';
+      });
+
+      // Clear red glow on stars when a rating is selected
+      document.querySelectorAll('input[name="rating"]').forEach(function (radio) {
+        radio.addEventListener('change', function () {
+          document.getElementById('starRating').classList.remove('error');
+          document.getElementById('ratingError').style.display = 'none';
+        });
+      });
+    };
+
+    /**
+     * Retrieves the selected star rating value.
+     * Returns null if no rating is selected.
+     */
+    function getSelectedRating() {
+      const selected = document.querySelector('input[name="rating"]:checked');
+      return selected ? selected.value : null;
+    }
+
+    /**
+     * Adds a new movie object to localStorage and refreshes the list.
+     */
+    function addMovie() {
+      const titleInput = document.getElementById('title');
+      const yearInput  = document.getElementById('year');
+      const title  = titleInput.value.trim();
+      const year   = yearInput.value.trim();
+      const genre  = document.getElementById('genre').value;
+      const rating = getSelectedRating();
+
+      // --- Validation: clear previous errors first ---
+      clearErrors();
+
+      let hasError = false;
+
+      // Check title
+      if (!title) {
+        titleInput.classList.add('error');
+        document.getElementById('titleError').style.display = 'flex';
+        hasError = true;
+      }
+
+      // Check year
+      if (!year) {
+        yearInput.classList.add('error');
+        document.getElementById('yearError').style.display = 'flex';
+        hasError = true;
+      }
+
+      // Check rating (stars)
+      if (!rating) {
+        document.getElementById('starRating').classList.add('error');
+        document.getElementById('ratingError').style.display = 'flex';
+        hasError = true;
+      }
+
+      // Show toast and stop submission if any errors
+      if (hasError) {
+        showToast();
+        return;
+      }
+
+      // Build movie JS object with correct structure
+      const newMovie = {
+        title: title,
+        year: year,
+        genre: genre,
+        rating: rating
+      };
+
+      // Read existing movies array from localStorage (or start fresh)
+      const existing = localStorage.getItem('movies');
+      const moviesArray = existing ? JSON.parse(existing) : [];
+
+      // Push new movie and save back as stringified JSON
+      moviesArray.push(newMovie);
+      localStorage.setItem('movies', JSON.stringify(moviesArray));
+
+      // Clear form inputs
+      titleInput.value = '';
+      yearInput.value  = '';
+      document.getElementById('genre').selectedIndex = 0;
+      document.querySelectorAll('input[name="rating"]').forEach(r => r.checked = false);
+
+      // Refresh the displayed movie list
+      displayMovies();
+    }
+
+    /**
+     * Clears all error styles and messages from the form.
+     */
+    function clearErrors() {
+      document.getElementById('title').classList.remove('error');
+      document.getElementById('year').classList.remove('error');
+      document.getElementById('starRating').classList.remove('error');
+      document.getElementById('titleError').style.display  = 'none';
+      document.getElementById('yearError').style.display   = 'none';
+      document.getElementById('ratingError').style.display = 'none';
+    }
+
+    /**
+     * Shows the red toast notification at the top, then fades it out.
+     */
+    function showToast() {
+      const toast = document.getElementById('toast');
+      toast.classList.add('show');
+      // Auto-hide after 3 seconds
+      setTimeout(() => toast.classList.remove('show'), 3000);
+    }
+
+    // Clear errors as soon as user starts correcting their inputs
+    document.getElementById('title').addEventListener('input', function () {
+      this.classList.remove('error');
+      document.getElementById('titleError').style.display = 'none';
+    });
+
+    document.getElementById('year').addEventListener('input', function () {
+      this.classList.remove('error');
+      document.getElementById('yearError').style.display = 'none';
+    });
+
+    /**
+     * Reads movies from localStorage and renders them in the Movie List section.
+     */
+    function displayMovies() {
+      const movieListDiv = document.getElementById('movieList');
+      const stored = localStorage.getItem('movies');
+      const moviesArray = stored ? JSON.parse(stored) : [];
+
+      // Show empty state if no movies exist
+      if (moviesArray.length === 0) {
+        movieListDiv.innerHTML = '<p class="empty-msg">No movies added yet.</p>';
+        return;
+      }
+
+      // Build HTML for each movie entry
+      let html = '';
+      moviesArray.forEach(function (movie) {
+        const stars = generateStars(parseInt(movie.rating));
+        html += `
+          <div class="movie-item">
+            <span class="movie-info">${movie.title} (${movie.year}) - ${movie.genre}, Rating:</span>
+            <span class="movie-stars">${stars}</span>
+          </div>
+        `;
+      });
+
+      movieListDiv.innerHTML = html;
+    }
+
+    /**
+     * Generates a star string based on the numeric rating (1–5).
+     * Filled stars are yellow (★), empty stars are gray (☆).
+     */
+    function generateStars(rating) {
+      let stars = '';
+      for (let i = 1; i <= 5; i++) {
+        // Use filled star for rated amount, empty for remainder
+        stars += i <= rating ? '★' : '☆';
+      }
+      return stars;
+    }
+  </script>
+
+</body>
+</html>
